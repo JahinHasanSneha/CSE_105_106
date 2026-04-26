@@ -1,0 +1,9 @@
+Inserted 20 into the heap.
+Inserted 10 into the heap.
+Inserted 15 into the heap.
+Heap: 10 20 15
+Min Heap property is preserved.
+Heaps merged.
+Heap: 5 10 8 20 25 15
+Min Heap property is preserved.
+Heap size: 6

@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+bool isMatch(string s, string p) {
+    int m = s.size();
+    int n = p.size();
+
+    // DP table where dp[i][j] means whether s[0..i-1] matches p[0..j-1]
+    vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
+
+    // Base case: both empty string and empty pattern match
+    dp[0][0] = true;
+
+    // Fill the DP table for patterns with '*'
+    for (int j = 1; j <= n; j++) {
+        if (p[j - 1] == '*') {
+            dp[0][j] = dp[0][j - 1];
+        }
+    }
+
+    // Fill the DP table for other cases
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (p[j - 1] == s[i - 1] || p[j - 1] == '?') {
+                // Case when characters match or '?' is a wildcard
+                dp[i][j] = dp[i - 1][j - 1];
+            } else if (p[j - 1] == '*') {
+                // Case when '*' is a wildcard
+                dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
+            }
+        }
+    }
+
+    // Return the result
+    return dp[m][n];
+}
+
+int main() {
+    string s, p;
+    cout << "Enter the string: ";
+    cin >> s;
+    cout << "Enter the pattern: ";
+    cin >> p;
+
+    if (isMatch(s, p)) {
+        cout << "The string matches the pattern!" << endl;
+    } else {
+        cout << "The string does NOT match the pattern." << endl;
+    }
+
+    return 0;
+}

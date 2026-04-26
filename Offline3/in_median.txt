@@ -1,0 +1,19 @@
+11
+50 apple
+30 banana
+70 cherry
+20 date
+40 elderberry
+60 fig
+80 grape
+10 mango
+25 orange
+55 kiwi
+90 melon
+6
+10 25
+20 40
+10 40
+10 90
+30 40
+60 80
