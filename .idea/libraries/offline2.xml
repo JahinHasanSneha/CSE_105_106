@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="offline2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/offline2.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
